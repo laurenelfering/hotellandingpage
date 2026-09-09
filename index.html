@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cheap & Clean Rooms by the Garden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dusk: #243B55;
+    --dusk-deep: #16283F;
+    --sunset-1: #E8814B;
+    --sunset-2: #F2B44C;
+    --cream: #FBF7EE;
+    --garden: #5C7A4E;
+    --garden-deep: #40573A;
+    --ink: #2A2620;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    margin: 0;
+  }
+
+  a { color: inherit; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--dusk-deep) 0%, var(--dusk) 38%, var(--sunset-1) 78%, var(--sunset-2) 100%);
+  }
+
+  .hero-watermark {
+    position: absolute;
+    inset: 0;
+    opacity: 0.16;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .hero-watermark svg {
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+
+  .eyebrow-plant {
+    margin-bottom: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .hero h1 {
+    color: #FFF9F0;
+    font-size: clamp(2.3rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+  }
+
+  .hero p.tagline {
+    color: #FCE7CE;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 1rem;
+  }
+
+  .hero-cta {
+    margin-top: 2.3rem;
+    display: inline-block;
+    background: var(--cream);
+    color: var(--dusk-deep);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    font-size: 1rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.22);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .section {
+    padding: 5.5rem 1.5rem;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .about {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .about h2 {
+    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    color: var(--dusk-deep);
+    line-height: 1.15;
+  }
+
+  .about p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #4A4438;
+    margin-top: 1.1rem;
+  }
+
+  .about-figure {
+    background: linear-gradient(160deg, var(--garden) 0%, var(--garden-deep) 100%);
+    border-radius: 4px;
+    aspect-ratio: 4 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  /* ---------- RATES ---------- */
+  .rates {
+    background: var(--dusk-deep);
+    padding: 5rem 1.5rem;
+  }
+
+  .rates-inner {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .rates h2 {
+    color: #FFF9F0;
+    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    text-align: center;
+  }
+
+  .rates-sub {
+    text-align: center;
+    color: #C9D3DE;
+    margin-top: 0.7rem;
+    font-size: 1.02rem;
+  }
+
+  .rate-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.8rem;
+  }
+
+  .rate-card {
+    background: rgba(255,249,240,0.06);
+    border: 1px solid rgba(255,249,240,0.18);
+    border-radius: 4px;
+    padding: 2.2rem 1.8rem;
+    text-align: center;
+  }
+
+  .rate-card.featured {
+    background: linear-gradient(160deg, var(--sunset-1), var(--sunset-2));
+    border: none;
+  }
+
+  .rate-card .price {
+    font-family: 'Fraunces', serif;
+    font-size: 2.6rem;
+    color: #FFF9F0;
+    font-weight: 700;
+  }
+
+  .rate-card.featured .price { color: var(--dusk-deep); }
+
+  .rate-card .price span {
+    font-size: 1rem;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+  }
+
+  .rate-card .label {
+    margin-top: 0.5rem;
+    color: #DCE4EC;
+    font-size: 0.98rem;
+  }
+
+  .rate-card.featured .label { color: var(--dusk-deep); }
+
+  /* ---------- GARDEN & BREAKFAST ---------- */
+  .garden-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .garden-strip h3 {
+    font-size: 1.5rem;
+    color: var(--garden-deep);
+  }
+
+  .garden-strip p {
+    margin-top: 0.8rem;
+    line-height: 1.6;
+    color: #4A4438;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--ink);
+    color: #E8E1D3;
+    padding: 3rem 1.5rem 2.2rem;
+    text-align: center;
+  }
+
+  footer h3 {
+    color: #FFF9F0;
+    font-size: 1.4rem;
+  }
+
+  footer p {
+    margin-top: 0.6rem;
+    color: #B8AF9E;
+    font-size: 0.95rem;
+  }
+
+  footer .fine-print {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #6E6656;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 700px) {
+    .about, .garden-strip { grid-template-columns: 1fr; }
+    .rate-cards { grid-template-columns: 1fr; }
+    .about-figure { aspect-ratio: 16/9; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero-cta { transition: none; }
+  }
+
+  a:focus-visible, .hero-cta:focus-visible {
+    outline: 2px solid var(--sunset-2);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-watermark" aria-hidden="true">
+      <svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+        <!-- faded garden / bird watermark -->
+        <g fill="#FFF9F0">
+          <path d="M0 380 Q60 340 120 380 T240 380 T360 380 T480 380 T600 380 T720 380 T840 380 T960 380 T1080 380 T1200 380 V400 H0 Z" opacity="0.5"/>
+          <path d="M150 380 C150 300 190 250 210 240 C215 260 210 300 195 330 C210 310 235 295 260 292 C240 320 215 345 195 358" stroke="#FFF9F0" stroke-width="4" fill="none" opacity="0.7"/>
+          <path d="M950 380 C950 290 1000 235 1025 222 C1030 248 1022 295 1005 328 C1025 305 1055 288 1085 284 C1060 318 1030 348 1005 362" stroke="#FFF9F0" stroke-width="4" fill="none" opacity="0.6"/>
+          <circle cx="270" cy="210" r="5"/>
+          <circle cx="300" cy="230" r="4"/>
+          <path d="M600 160 C610 150 626 150 634 160 C642 150 658 150 668 160 C668 172 650 186 634 196 C618 186 600 172 600 160 Z" opacity="0.65"/>
+          <path d="M840 120 q14 -14 28 0 q-14 6 -14 20 q0 -14 -14 -20 Z" opacity="0.55"/>
+          <path d="M760 90 l6 14 l14 4 l-14 4 l-6 14 l-6 -14 l-14 -4 l14 -4 Z" opacity="0.5"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <div class="eyebrow-plant" aria-hidden="true">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M20 36V18" stroke="#FCE7CE" stroke-width="2"/>
+          <path d="M20 22C20 14 12 12 8 12C8 20 14 24 20 22Z" fill="#FCE7CE" opacity="0.85"/>
+          <path d="M20 20C20 12 28 10 32 10C32 18 26 22 20 20Z" fill="#FCE7CE" opacity="0.7"/>
+        </svg>
+      </div>
+      <h1>Cheap &amp; Clean Rooms by the Garden</h1>
+      <p class="tagline">A little nest by the flowerbeds, kept honest and kept blooming.</p>
+      <a class="hero-cta" href="#rates">See rates &amp; book a room</a>
+    </div>
+  </section>
+
+  <section class="section about">
+    <div>
+      <h2>Run by a couple who'd rather be outside</h2>
+      <p>We're a small, family-run guesthouse tucked beside a working garden. Between us we grow most of what lands on your breakfast plate, and we've built a few birdhouses over the years that the local finches seem to approve of. We keep the rooms simple and spotless, and we keep the rates honest — no resort fees, no surprises.</p>
+      <p>If you're the kind of traveler who'd rather sit with coffee and watch the garden wake up than scroll a hotel loyalty app, you'll feel at home here.</p>
+    </div>
+    <div class="about-figure" aria-hidden="true">
+      <svg width="70%" viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="90" fill="#FBF7EE" opacity="0.08"/>
+        <path d="M100 170V90" stroke="#FBF7EE" stroke-width="3"/>
+        <path d="M100 110C100 80 60 70 45 70C45 100 70 120 100 110Z" fill="#FBF7EE" opacity="0.9"/>
+        <path d="M100 100C100 70 140 60 155 60C155 90 130 112 100 100Z" fill="#FBF7EE" opacity="0.75"/>
+        <path d="M100 90C100 65 130 58 142 58C142 82 122 100 100 90Z" fill="#FBF7EE" opacity="0.6"/>
+        <circle cx="60" cy="55" r="5" fill="#FBF7EE"/>
+        <circle cx="145" cy="45" r="4" fill="#FBF7EE" opacity="0.8"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="rates" id="rates">
+    <div class="rates-inner">
+      <h2>Simple, honest rates</h2>
+      <p class="rates-sub">One clean room. One fair price. Stay a second night and it gets even better.</p>
+      <div class="rate-cards">
+        <div class="rate-card">
+          <div class="price">$50<span> / night</span></div>
+          <div class="label">One night, garden view</div>
+        </div>
+        <div class="rate-card featured">
+          <div class="price">$75<span> / two nights</span></div>
+          <div class="label">Our most-booked stay</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section garden-strip">
+    <div>
+      <h3>Fresh from our garden</h3>
+      <p>Most mornings, breakfast includes something picked that same week — tomatoes, herbs, whatever the season's given us. It's simple, it's affordable, and it's usually still a little warm from the sun.</p>
+    </div>
+    <div>
+      <h3>Company from the birds</h3>
+      <p>We've planted for pollinators and nesting birds as much as for ourselves, so don't be surprised if breakfast comes with a soundtrack. It's one of our favorite parts of the day.</p>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Cheap &amp; Clean Rooms by the Garden</h3>
+    <p>Come see the garden, meet the birds, and get a good night's sleep at a fair price.</p>
+    <p class="fine-print">Rates: $50 for one night, $75 for two nights.</p>
+  </footer>
+
+</body>
+</html>
